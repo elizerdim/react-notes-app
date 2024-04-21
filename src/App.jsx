@@ -30,9 +30,15 @@ export default function App() {
   }
 
   function updateNote(text) {
-    setNotes(notes.map(note => {
-      return note.id === currentNoteId ? { ...note, body: text } : note
-    }))
+    // bump the updated note to the top
+    const currentNote = findCurrentNote();
+    currentNote.body = text;
+    const currentNoteIndex = notes.findIndex(note => note.id === currentNoteId);
+    setNotes([
+      currentNote, 
+      ...notes.slice(0, currentNoteIndex), 
+      ...notes.slice(currentNoteIndex + 1)
+    ]);
   }
 
   return (
