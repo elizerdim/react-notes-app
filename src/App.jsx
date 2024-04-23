@@ -41,6 +41,11 @@ export default function App() {
     ]);
   }
 
+  function deleteNote(e, noteId) {
+    e.stopPropagation();
+    setNotes(notes.filter(note => note.id !== noteId));
+  }
+
   return (
     <>
       <main>
@@ -57,6 +62,7 @@ export default function App() {
               currentNote={findCurrentNote()}
               setCurrentNoteId={setCurrentNoteId}
               newNote={createNewNote}
+              deleteNote={deleteNote}
             />
             {
               currentNoteId &&
