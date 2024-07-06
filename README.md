@@ -2,6 +2,12 @@
 
 This is a project from the [Learn React](https://scrimba.com/learn/learnreact) course from [Scrimba](https://scrimba.com/). 
 
+Install dependencies with --legacy-peer-deps flag because react-mde package isn't compatible with React 18.
+
+```js
+npm i --legacy-peer-deps
+```
+
 ### The challenge
 
 Users should be able to:
